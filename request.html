@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Request Catering • Meatfest Catering</title>
+  <meta name="description" content="Request a catering quote in Columbus, OH.">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="/">
+        <img src="/assets/img/logo.svg" alt="Meatfest Catering" width="180" height="36">
+      </a>
+      <nav class="nav-links" data-nav>
+        <a href="/request.html" class="cta">Request Catering</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Request Catering</h1>
+    <p class="helper">Share a few details and we’ll get back with a quote.</p>
+
+    <form id="request-form" class="form" novalidate>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+        <div class="field">
+          <label class="required" for="name">Your name</label>
+          <input id="name" name="name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label class="required" for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="eventDate">Event date</label>
+          <input id="eventDate" name="eventDate" type="date" />
+        </div>
+        <div class="field">
+          <label for="eventType">Event type</label>
+          <select id="eventType" name="eventType">
+            <option value="">Select…</option>
+            <option>Corporate</option>
+            <option>Wedding</option>
+            <option>Private Party</option>
+            <option>Tailgate</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="headcount">Estimated headcount</label>
+          <input id="headcount" name="headcount" type="number" min="1" step="1" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="required" for="message">What are you looking for?</label>
+        <textarea id="message" name="message" placeholder="Menu ideas, location, budget, timing…"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn primary" type="submit">Submit Request</button>
+        <span class="small">We typically reply within 1 business day.</span>
+      </div>
+    </form>
+
+    <div class="notice" style="margin-top:1rem;">
+      Tip: After you deploy the backend, copy <code>assets/js/config.example.js</code> to <code>assets/js/config.js</code> and set <code>apiBaseUrl</code>.
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© <span id="y"></span> Meatfest Catering • Columbus, Ohio</div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/forms.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

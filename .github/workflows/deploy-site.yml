@@ -1,0 +1,47 @@
+name: Deploy Static Site to S3
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'infra/**'
+      - '.github/workflows/deploy-infra.yml'
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ${{ vars.AWS_REGION }}
+  S3_BUCKET: ${{ vars.S3_BUCKET }}
+  DISTRIBUTION_ID: ${{ vars.DISTRIBUTION_ID }}
+
+jobs:
+  deploy:
+    name: Sync to S3
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Upload site to S3
+        run: |
+          aws s3 sync . "s3://${S3_BUCKET}" \
+            --delete \
+            --exclude "infra/*" \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "scripts/*" \
+            --exclude "**/config.example.js" \
+            --exclude "**/.DS_Store"
+
+      - name: Invalidate CloudFront (optional)
+        if: env.DISTRIBUTION_ID != ''
+        run: |
+          aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*"

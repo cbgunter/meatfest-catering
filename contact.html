@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact • Meatfest Catering</title>
+  <meta name="description" content="Contact Meatfest Catering in Columbus, Ohio.">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="/">
+        <img src="/assets/img/logo.svg" alt="Meatfest Catering" width="180" height="36">
+      </a>
+      <nav class="nav-links" data-nav>
+        <a href="/request.html" class="cta">Request Catering</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Contact Us</h1>
+    <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:1rem;">
+      <div>
+        <p>Have a question about menus, availability, or logistics? Send us a note and we’ll be in touch.</p>
+        <div class="card">
+          <strong>Service Area</strong>
+          <p class="small">Columbus, OH and surrounding communities.</p>
+        </div>
+      </div>
+      <div>
+        <form id="contact-form" class="form" novalidate>
+          <div class="field">
+            <label class="required" for="name">Your name</label>
+            <input id="name" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label class="required" for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <div class="field">
+            <label class="required" for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn primary" type="submit">Send Message</button>
+            <span class="small">We’ll reply by email.</span>
+          </div>
+        </form>
+        <div class="notice" style="margin-top:1rem;">
+          Forms inactive until API connected. See README for setup.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© <span id="y"></span> Meatfest Catering • Columbus, Ohio</div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/forms.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

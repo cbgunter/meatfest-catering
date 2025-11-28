@@ -1,0 +1,79 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Meatfest Catering - Serverless form backend (API Gateway + Lambda + DynamoDB + SES)
+
+Globals:
+  Function:
+    Runtime: nodejs18.x
+    Timeout: 15
+    MemorySize: 256
+    Tracing: Active
+
+Parameters:
+  ToEmail:
+    Type: String
+    Description: Destination email address to receive form notifications (must be verified in SES if in sandbox)
+  FromEmail:
+    Type: String
+    Description: Verified SES sender email identity to send from
+
+Resources:
+  LeadsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      TableName: !Sub "meatfest-leads-${AWS::AccountId}-${AWS::Region}"
+
+  FormHttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins:
+          - "*"
+        AllowHeaders:
+          - Content-Type
+        AllowMethods:
+          - OPTIONS
+          - POST
+
+  FormFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: handler.submit
+      Description: Handle contact and request forms and send email + store lead
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref LeadsTable
+          TO_EMAIL: !Ref ToEmail
+          FROM_EMAIL: !Ref FromEmail
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LeadsTable
+        - Statement:
+            - Effect: Allow
+              Action:
+                - ses:SendEmail
+                - ses:SendRawEmail
+              Resource: '*'
+      Events:
+        Submit:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref FormHttpApi
+            Path: /submit
+            Method: POST
+
+Outputs:
+  ApiBaseUrl:
+    Description: Base URL for the HTTP API
+    Value: !Sub "https://${FormHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+  LeadsTableName:
+    Description: DynamoDB table name
+    Value: !Ref LeadsTable

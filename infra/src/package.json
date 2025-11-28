@@ -1,0 +1,13 @@
+{
+  "name": "meatfest-form-handler",
+  "version": "1.0.0",
+  "description": "Lambda handler for Meatfest Catering forms",
+  "main": "handler.js",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.624.0",
+    "@aws-sdk/client-sesv2": "^3.624.0",
+    "uuid": "^9.0.1"
+  }
+}

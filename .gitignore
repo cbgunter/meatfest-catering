@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Env
+.env
+
+# Frontend local config (use config.example.js in repo)
+assets/js/config.js
+
+# SAM build artifacts
+infra/.aws-sam/
+
+# Node
+infra/src/node_modules/
+infra/src/package-lock.json
+
+# GitHub
+.github/.DS_Store
