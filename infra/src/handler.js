@@ -74,6 +74,7 @@ exports.submit = async (event) => {
     return response(500, { message: 'Could not save your request.' });
   }
 
+  // Email to business owner
   const subject = type === 'request' ? `New Catering Request from ${name}` : `New Contact from ${name}`;
   const text = [
     `Type: ${type}`,
@@ -89,7 +90,30 @@ exports.submit = async (event) => {
     message || '(none)'
   ].filter(Boolean).join('\n');
 
+  // Auto-responder email to customer
+  const autoReplySubject = type === 'request'
+    ? 'Thanks for your catering request!'
+    : 'Thanks for contacting Meatfest Catering!';
+
+  const autoReplyText = `Hi ${name},
+
+Thanks for reaching out to Meatfest Catering! We've received your ${type === 'request' ? 'catering request' : 'message'} and will get back to you within 1 business day.
+
+${type === 'request' && eventDate ? `We'll be in touch soon about your event on ${eventDate}.` : ''}
+
+In the meantime, if you have urgent questions, feel free to call us at (614) 555-1234 (Mon-Fri 9am-6pm EST).
+
+Thanks for considering Meatfest Catering for your event!
+
+Best regards,
+The Meatfest Catering Team
+Columbus, Ohio
+
+---
+This is an automated confirmation. Please do not reply to this email.`;
+
   try{
+    // Send notification to business owner
     await ses.send(new SendEmailCommand({
       FromEmailAddress: FROM_EMAIL,
       Destination: { ToAddresses: [TO_EMAIL] },
@@ -97,6 +121,18 @@ exports.submit = async (event) => {
         Simple: {
           Subject: { Data: subject },
           Body: { Text: { Data: text } }
+        }
+      }
+    }));
+
+    // Send auto-reply to customer
+    await ses.send(new SendEmailCommand({
+      FromEmailAddress: FROM_EMAIL,
+      Destination: { ToAddresses: [email] },
+      Content: {
+        Simple: {
+          Subject: { Data: autoReplySubject },
+          Body: { Text: { Data: autoReplyText } }
         }
       }
     }));
