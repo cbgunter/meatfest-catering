@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Meatfest Catering • Columbus, Ohio</title>
-  <meta name="description" content="Columbus, OH catering specializing in smoked meats, events, and corporate gatherings.">
+  <title>Columbus BBQ Catering | Meatfest Catering - Smoked Meats & Events</title>
+  <meta name="description" content="Columbus, OH BBQ catering specializing in smoked meats for corporate events, weddings, and private parties. Serving Columbus and surrounding areas. Call (614) 555-1234 for a quote.">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
@@ -27,16 +27,46 @@
     "@context": "https://schema.org",
     "@type": "FoodEstablishment",
     "name": "Meatfest Catering",
-    "description": "Columbus, OH catering specializing in smoked meats, events, and corporate gatherings",
+    "description": "Columbus, OH catering specializing in smoked meats, BBQ, corporate events, weddings, and private parties. Serving Columbus and surrounding communities within 50 miles.",
+    "image": "https://www.meatfestcatering.com/assets/img/logo.svg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Columbus",
       "addressRegion": "OH",
       "addressCountry": "US"
     },
-    "servesCuisine": "Barbecue",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "39.9612",
+      "longitude": "-82.9988"
+    },
+    "url": "https://www.meatfestcatering.com",
+    "telephone": "+1-614-555-1234",
     "priceRange": "$$",
-    "url": "https://meatfestcatering.com"
+    "servesCuisine": ["Barbecue", "American", "Southern"],
+    "acceptsReservations": "True",
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Columbus",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Ohio"
+        }
+      },
+      {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.9612",
+          "longitude": "-82.9988"
+        },
+        "geoRadius": "80467"
+      }
+    ],
+    "paymentAccepted": "Cash, Credit Card",
+    "currenciesAccepted": "USD"
   }
   </script>
 </head>
