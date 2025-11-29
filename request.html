@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Request Catering • Meatfest Catering</title>
   <meta name="description" content="Request a catering quote in Columbus, OH.">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meatfestcatering.com/request.html">
+  <meta property="og:title" content="Request Catering • Meatfest Catering">
+  <meta property="og:description" content="Request a catering quote in Columbus, OH.">
+
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
@@ -26,6 +33,9 @@
     <p class="helper">Share a few details and we’ll get back with a quote.</p>
 
     <form id="request-form" class="form" novalidate>
+      <!-- Honeypot field (hidden from users) -->
+      <input type="text" name="website" style="position:absolute;left:-9999px;width:1px;height:1px;" tabindex="-1" autocomplete="off" />
+
       <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
         <div class="field">
           <label class="required" for="name">Your name</label>

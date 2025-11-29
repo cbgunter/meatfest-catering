@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Contact • Meatfest Catering</title>
   <meta name="description" content="Contact Meatfest Catering in Columbus, Ohio.">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meatfestcatering.com/contact.html">
+  <meta property="og:title" content="Contact • Meatfest Catering">
+  <meta property="og:description" content="Contact Meatfest Catering in Columbus, Ohio.">
+
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
@@ -25,14 +32,22 @@
     <h1>Contact Us</h1>
     <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:1rem;">
       <div>
-        <p>Have a question about menus, availability, or logistics? Send us a note and we’ll be in touch.</p>
+        <p>Have a question about menus, availability, or logistics? Send us a note and we'll be in touch.</p>
         <div class="card">
+          <strong>Phone</strong>
+          <p><a href="tel:+16145551234">(614) 555-1234</a></p>
+          <p class="small">Available Mon-Fri 9am-6pm EST</p>
+        </div>
+        <div class="card" style="margin-top:1rem;">
           <strong>Service Area</strong>
-          <p class="small">Columbus, OH and surrounding communities.</p>
+          <p class="small">Columbus, OH and surrounding communities within 50 miles.</p>
         </div>
       </div>
       <div>
         <form id="contact-form" class="form" novalidate>
+          <!-- Honeypot field (hidden from users) -->
+          <input type="text" name="website" style="position:absolute;left:-9999px;width:1px;height:1px;" tabindex="-1" autocomplete="off" />
+
           <div class="field">
             <label class="required" for="name">Your name</label>
             <input id="name" name="name" autocomplete="name" required />
