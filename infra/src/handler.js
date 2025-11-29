@@ -101,7 +101,7 @@ Thanks for reaching out to Meatfest Catering! We've received your ${type === 're
 
 ${type === 'request' && eventDate ? `We'll be in touch soon about your event on ${eventDate}.` : ''}
 
-In the meantime, if you have urgent questions, feel free to call us at (614) 555-1234 (Mon-Fri 9am-6pm EST).
+In the meantime, if you have urgent questions, feel free to call us at (614) 653-6410 (Mon-Fri 9am-6pm EST).
 
 Thanks for considering Meatfest Catering for your event!
 
