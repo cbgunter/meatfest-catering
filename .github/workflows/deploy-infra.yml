@@ -11,6 +11,7 @@ on:
 env:
   AWS_REGION: ${{ vars.AWS_REGION }}
   STACK_NAME: ${{ vars.SAM_STACK_NAME }}
+  SAM_BUCKET: ${{ vars.SAM_BUCKET }}
 
 jobs:
   deploy:
@@ -40,10 +41,26 @@ jobs:
 
       - name: Deploy
         run: |
-          sam deploy \
-            --stack-name "${STACK_NAME:-meatfest-forms}" \
-            --no-confirm-changeset \
-            --capabilities CAPABILITY_IAM \
-            --parameter-overrides \
-              ToEmail=${{ secrets.TO_EMAIL }} \
-              FromEmail=${{ secrets.FROM_EMAIL }}
+          if [ -n "${SAM_BUCKET}" ]; then \
+            sam deploy \
+              --stack-name "${STACK_NAME:-meatfest-forms}" \
+              --region "${AWS_REGION}" \
+              --s3-bucket "${SAM_BUCKET}" \
+              --no-confirm-changeset \
+              --no-fail-on-empty-changeset \
+              --capabilities CAPABILITY_IAM \
+              --parameter-overrides \
+                ToEmail=${{ secrets.TO_EMAIL }} \
+                FromEmail=${{ secrets.FROM_EMAIL }} ; \
+          else \
+            sam deploy \
+              --stack-name "${STACK_NAME:-meatfest-forms}" \
+              --region "${AWS_REGION}" \
+              --resolve-s3 \
+              --no-confirm-changeset \
+              --no-fail-on-empty-changeset \
+              --capabilities CAPABILITY_IAM \
+              --parameter-overrides \
+                ToEmail=${{ secrets.TO_EMAIL }} \
+                FromEmail=${{ secrets.FROM_EMAIL }} ; \
+          fi

@@ -12,6 +12,7 @@ env:
   AWS_REGION: ${{ vars.AWS_REGION }}
   S3_BUCKET: ${{ vars.S3_BUCKET }}
   DISTRIBUTION_ID: ${{ vars.DISTRIBUTION_ID }}
+  API_BASE_URL: ${{ vars.API_BASE_URL }}
 
 jobs:
   deploy:
@@ -29,6 +30,15 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
+
+      - name: Generate runtime config.js
+        run: |
+          mkdir -p assets/js
+          cat > assets/js/config.js <<EOF
+          window.MEATFEST_CONFIG = {
+            apiBaseUrl: "${API_BASE_URL:-}"
+          };
+          EOF
 
       - name: Upload site to S3
         run: |
