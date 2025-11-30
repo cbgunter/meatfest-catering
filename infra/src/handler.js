@@ -43,6 +43,7 @@ exports.submit = async (event) => {
   const email = sanitize(payload.email);
   const phone = sanitize(payload.phone);
   const eventDate = sanitize(payload.eventDate);
+  const eventLocation = sanitize(payload.eventLocation);
   const eventType = sanitize(payload.eventType);
   const headcount = sanitize(String(payload.headcount||''));
   const message = sanitize(payload.message);
@@ -62,6 +63,7 @@ exports.submit = async (event) => {
     email: { S: email },
     phone: { S: phone },
     eventDate: { S: eventDate },
+    eventLocation: { S: eventLocation },
     eventType: { S: eventType },
     headcount: { S: headcount },
     message: { S: message }
@@ -83,6 +85,7 @@ exports.submit = async (event) => {
     `Email: ${email}`,
     phone ? `Phone: ${phone}` : null,
     eventDate ? `Event Date: ${eventDate}` : null,
+    eventLocation ? `Event Location: ${eventLocation}` : null,
     eventType ? `Event Type: ${eventType}` : null,
     headcount ? `Headcount: ${headcount}` : null,
     '',

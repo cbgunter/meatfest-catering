@@ -79,20 +79,28 @@ a:hover{color:var(--accent)}
 .form{display:grid;gap:.75rem;margin-top:1rem}
 .field{display:grid;gap:.35rem}
 label{font-weight:600}
-input,select,textarea{padding:.7rem .8rem;border-radius:.6rem;border:1px solid var(--border);background:#fff;color:var(--text);font:inherit}
-textarea{min-height:120px}
+input,select,textarea{padding:.7rem .8rem;border-radius:.6rem;border:2px solid var(--border);background:#fff;color:var(--text);font:inherit;transition:border-color .2s ease}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand)}
+textarea{min-height:120px;resize:vertical}
 .helper{color:var(--muted);font-size:.9rem}
 .required::after{content:" *";color:var(--accent)}
-.form-actions{display:flex;gap:.75rem;align-items:center}
+.form-actions{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}
 .notice{padding:.75rem 1rem;border-radius:.6rem;border:1px solid var(--border);background:#fff}
 .notice.success{border-color:#b7ead5;background:#f2fbf7;color:var(--success)}
 .notice.error{border-color:#f1c6c6;background:#fff5f5;color:var(--error)}
 .small{font-size:.9rem;color:var(--muted)}
 
+/* Form Grid Layout */
+.form-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+.contact-grid{grid-template-columns:1.1fr .9fr;gap:2rem}
+
 /* Footer */
 .footer{border-top:2px solid var(--border-dark);background:linear-gradient(to bottom,transparent,var(--smoke));padding:2rem 0;color:var(--muted);margin-top:2rem}
 .footer a{color:var(--brand);font-weight:600;transition:color .2s ease}
 .footer a:hover{color:var(--accent)}
+
+/* Page-specific */
+.page-main{min-height:calc(100vh - 400px)}
 
 /* Responsive */
 @media (max-width: 900px){
@@ -109,6 +117,8 @@ textarea{min-height:120px}
   .gallery-item img{height:250px}
   .card{padding:1.35rem}
   .grid.cards{gap:1rem}
+  .contact-grid{grid-template-columns:1fr;gap:1.5rem}
+  .form-grid{grid-template-columns:1fr;gap:1rem}
 }
 
 @media (max-width: 600px){
@@ -124,4 +134,6 @@ textarea{min-height:120px}
   .grid.cards{grid-template-columns:1fr;gap:1rem}
   .photo-gallery{gap:1rem}
   .gallery-item{border-width:2px}
+  .form-grid{gap:.9rem}
+  .contact-grid{gap:1.25rem}
 }
