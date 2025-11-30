@@ -25,6 +25,7 @@
       email: fd.get('email')||'',
       phone: fd.get('phone')||'',
       eventDate: fd.get('eventDate')||'',
+      eventLocation: fd.get('eventLocation')||'',
       eventType: fd.get('eventType')||'',
       headcount: fd.get('headcount')||'',
       message: fd.get('message')||'',
