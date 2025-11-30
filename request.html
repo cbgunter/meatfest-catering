@@ -25,15 +25,15 @@
     </div>
   </header>
 
-  <main class="container section">
+  <main class="container section page-main">
     <h1>Request Catering</h1>
-    <p class="helper">Share a few details and we’ll get back with a quote.</p>
+    <p class="helper">Share a few details and we'll get back with a quote.</p>
 
     <form id="request-form" class="form" novalidate>
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="website" style="position:absolute;left:-9999px;width:1px;height:1px;" tabindex="-1" autocomplete="off" />
 
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+      <div class="grid form-grid">
         <div class="field">
           <label class="required" for="name">Your name</label>
           <input id="name" name="name" autocomplete="name" required />
@@ -49,6 +49,10 @@
         <div class="field">
           <label for="eventDate">Event date</label>
           <input id="eventDate" name="eventDate" type="date" />
+        </div>
+        <div class="field">
+          <label for="eventLocation">Event location</label>
+          <input id="eventLocation" name="eventLocation" type="text" placeholder="City or venue name" />
         </div>
         <div class="field">
           <label for="eventType">Event type</label>
@@ -69,7 +73,7 @@
 
       <div class="field">
         <label class="required" for="message">What are you looking for?</label>
-        <textarea id="message" name="message" placeholder="Menu ideas, location, budget, timing…"></textarea>
+        <textarea id="message" name="message" placeholder="Menu ideas, budget, timing, dietary restrictions…"></textarea>
       </div>
 
       <div class="form-actions">
@@ -78,6 +82,13 @@
       </div>
     </form>
   </main>
+
+  <script>
+    // Set minimum date to today
+    const eventDateInput = document.getElementById('eventDate');
+    const today = new Date().toISOString().split('T')[0];
+    eventDateInput.setAttribute('min', today);
+  </script>
 
   <footer class="footer">
     <div class="container">
