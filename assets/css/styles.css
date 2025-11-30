@@ -83,13 +83,27 @@ textarea{min-height:120px}
 
 /* Responsive */
 @media (max-width: 900px){
+  .container{padding:0 1.5rem}
   .hero{grid-template-columns:1fr}
   .hero-main{grid-template-columns:1fr;padding:2rem 0}
   .hero-logo{order:-1;padding:1rem 0}
   .hero-logo img{max-width:400px}
-  .nav{flex-wrap:wrap;gap:.5rem}
+  .nav{flex-wrap:wrap;gap:.5rem;padding:.75rem 0}
   .logo{font-size:.95rem}
   .btn-request{padding:.55rem 1.2rem;font-size:.9rem}
+  .section{padding:2rem 0}
   .photo-gallery{grid-template-columns:1fr;gap:1rem}
   .gallery-item img{height:250px}
+  .card{padding:1.25rem}
+}
+
+@media (max-width: 600px){
+  .container{padding:0 1.25rem}
+  .hero-main{padding:1.5rem 0}
+  .section{padding:1.75rem 0}
+  .badge{font-size:.85rem;padding:.3rem .55rem}
+  .btns{gap:.6rem}
+  .btn{padding:.6rem .9rem;font-size:.95rem}
+  .card{padding:1rem}
+  .grid.cards{grid-template-columns:1fr;gap:.9rem}
 }
