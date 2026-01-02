@@ -26,12 +26,13 @@ a{color:var(--brand);text-decoration:none}
 .nav-links a.cta{background:var(--brand);color:#fff}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:3rem 0}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:3rem 1rem}
+.hero-title{font-size:1rem;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.5rem}
 .hero h1{font-size:clamp(1.8rem,4vw,3rem);line-height:1.15;margin:.25rem 0 .5rem}
 .hero p{color:var(--muted);font-size:1.05rem}
 .badges{display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
 .badge{background:#fff;border:1px solid var(--border);padding:.35rem .6rem;border-radius:999px;font-size:.9rem;color:#333}
-.btns{display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap}
+.btns{display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap;justify-content:center}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border-radius:.6rem;border:1px solid var(--border);background:#fff;color:var(--text)}
 .btn.primary{background:var(--brand);color:#fff;border-color:transparent}
 .btn.accent{background:var(--accent);color:#fff;border-color:transparent}
@@ -60,8 +61,9 @@ textarea{min-height:120px}
 .small{font-size:.9rem;color:var(--muted)}
 
 /* Footer */
-.footer{border-top:1px solid var(--border);padding:1.5rem 0;color:var(--muted)}
-.footer a{color:inherit}
+.footer{background:linear-gradient(to right,var(--brand),var(--accent));padding:1.5rem 0;color:#fff}
+.footer a{color:#fff;text-decoration:underline;opacity:.9}
+.footer a:hover{opacity:1}
 
 /* Responsive */
 @media (max-width: 900px){
