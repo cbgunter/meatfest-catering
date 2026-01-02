@@ -5,28 +5,35 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Request Catering • Meatfest Catering</title>
   <meta name="description" content="Request a catering quote in Columbus, OH.">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meatfestcatering.com/request.html">
+  <meta property="og:title" content="Request Catering • Meatfest Catering">
+  <meta property="og:description" content="Request a catering quote in Columbus, OH.">
+
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
   <header class="header">
     <div class="container nav">
-      <a class="logo" href="/">
-        <img src="/assets/img/logo.svg" alt="Meatfest Catering" width="180" height="36">
-      </a>
+      <a class="logo" href="/">MEATFEST CATERING</a>
       <nav class="nav-links" data-nav>
-        <a href="/request.html" class="cta">Request Catering</a>
-        <a href="/contact.html">Contact</a>
+        <a href="/request.html" class="btn-request">Request Catering</a>
       </nav>
     </div>
   </header>
 
-  <main class="container section">
+  <main class="container section page-main">
     <h1>Request Catering</h1>
-    <p class="helper">Share a few details and we’ll get back with a quote.</p>
+    <p class="helper">Share a few details and we'll get back with a quote.</p>
 
     <form id="request-form" class="form" novalidate>
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+      <!-- Honeypot field (hidden from users) -->
+      <input type="text" name="website" style="position:absolute;left:-9999px;width:1px;height:1px;" tabindex="-1" autocomplete="off" />
+
+      <div class="grid form-grid">
         <div class="field">
           <label class="required" for="name">Your name</label>
           <input id="name" name="name" autocomplete="name" required />
@@ -42,6 +49,10 @@
         <div class="field">
           <label for="eventDate">Event date</label>
           <input id="eventDate" name="eventDate" type="date" />
+        </div>
+        <div class="field">
+          <label for="eventLocation">Event location</label>
+          <input id="eventLocation" name="eventLocation" type="text" placeholder="City or venue name" />
         </div>
         <div class="field">
           <label for="eventType">Event type</label>
@@ -62,7 +73,7 @@
 
       <div class="field">
         <label class="required" for="message">What are you looking for?</label>
-        <textarea id="message" name="message" placeholder="Menu ideas, location, budget, timing…"></textarea>
+        <textarea id="message" name="message" placeholder="Menu ideas, budget, timing, dietary restrictions…"></textarea>
       </div>
 
       <div class="form-actions">
@@ -70,11 +81,14 @@
         <span class="small">We typically reply within 1 business day.</span>
       </div>
     </form>
-
-    <div class="notice" style="margin-top:1rem;">
-      Tip: After you deploy the backend, copy <code>assets/js/config.example.js</code> to <code>assets/js/config.js</code> and set <code>apiBaseUrl</code>.
-    </div>
   </main>
+
+  <script>
+    // Set minimum date to today
+    const eventDateInput = document.getElementById('eventDate');
+    const today = new Date().toISOString().split('T')[0];
+    eventDateInput.setAttribute('min', today);
+  </script>
 
   <footer class="footer">
     <div class="container">

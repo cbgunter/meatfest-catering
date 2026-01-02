@@ -3,20 +3,79 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Meatfest Catering • Columbus, Ohio</title>
-  <meta name="description" content="Columbus, OH catering specializing in smoked meats, events, and corporate gatherings.">
+  <title>Columbus BBQ Catering | Meatfest Catering - Smoked Meats & Events</title>
+  <meta name="description" content="Columbus, OH BBQ catering specializing in smoked meats for corporate events, weddings, and private parties. Serving Columbus and surrounding areas. Call (614) 653-6410 for a quote.">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meatfestcatering.com/">
+  <meta property="og:title" content="Meatfest Catering • Columbus, Ohio">
+  <meta property="og:description" content="Columbus, OH catering specializing in smoked meats, events, and corporate gatherings.">
+  <meta property="og:image" content="/assets/img/logo.svg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meatfest Catering • Columbus, Ohio">
+  <meta name="twitter:description" content="Columbus, OH catering specializing in smoked meats, events, and corporate gatherings.">
+
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Meatfest Catering",
+    "description": "Columbus, OH catering specializing in smoked meats, BBQ, corporate events, weddings, and private parties. Serving Columbus and surrounding communities within 50 miles.",
+    "image": "https://www.meatfestcatering.com/assets/img/logo.svg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Columbus",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "39.9612",
+      "longitude": "-82.9988"
+    },
+    "url": "https://www.meatfestcatering.com",
+    "telephone": "+1-614-653-6410",
+    "priceRange": "$$",
+    "servesCuisine": ["Barbecue", "American", "Southern"],
+    "acceptsReservations": "True",
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Columbus",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Ohio"
+        }
+      },
+      {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.9612",
+          "longitude": "-82.9988"
+        },
+        "geoRadius": "80467"
+      }
+    ],
+    "paymentAccepted": "Cash, Credit Card",
+    "currenciesAccepted": "USD"
+  }
+  </script>
 </head>
 <body>
   <header class="header">
     <div class="container nav">
-      <a class="logo" href="/">
-        <img src="/assets/img/logo.svg" alt="Meatfest Catering" width="180" height="36">
-      </a>
+      <a class="logo" href="/">MEATFEST CATERING</a>
       <nav class="nav-links" data-nav>
-        <a href="/request.html" class="cta">Request Catering</a>
-        <a href="/contact.html">Contact</a>
+        <a href="/request.html" class="btn-request">Request Catering</a>
       </nav>
     </div>
   </header>
@@ -36,16 +95,23 @@
           <span class="badge">Corporate events</span>
         </div>
       </div>
-      <div>
-        <div class="card">
-          <h3>Signature Menu Highlights</h3>
-          <ul>
-            <li>Low & slow brisket</li>
-            <li>Pulled pork with house sauce</li>
-            <li>Smoked chicken quarters</li>
-            <li>Mac, slaw, cornbread & more</li>
-          </ul>
-          <p class="small">Vegetarian sides and custom menus available.</p>
+      <div class="hero-logo">
+        <img src="/assets/img/meatfest-logo.png" alt="Meatfest Formula: Pig² + Cow³ + Turkey² over Fire equals Infinity">
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>See the Smoke & Sizzle</h2>
+      <p style="text-align:center;color:var(--muted);max-width:700px;margin:0 auto 2rem;">From our pits to your plate — our low and slow approach creates that perfect smoke ring and fall-off-the-bone tenderness.</p>
+      <div class="photo-gallery">
+        <div class="gallery-item">
+          <img src="/assets/img/ribs-smoker.jpg" alt="Seasoned pork ribs on the smoker getting that perfect bark">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/img/20161015_090646.jpg" alt="Baby back ribs smoking low and slow with beautiful caramelization">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/img/mixed-grill.jpg" alt="Sausages and steaks on the grill for a classic BBQ spread">
         </div>
       </div>
     </section>

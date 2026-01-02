@@ -9,6 +9,11 @@
     el.textContent = msg||'';
   }
 
+  function validateEmail(email){
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
   async function submitForm(form, kind){
     const status = form.querySelector('[data-status]');
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -20,10 +25,18 @@
       email: fd.get('email')||'',
       phone: fd.get('phone')||'',
       eventDate: fd.get('eventDate')||'',
+      eventLocation: fd.get('eventLocation')||'',
       eventType: fd.get('eventType')||'',
       headcount: fd.get('headcount')||'',
-      message: fd.get('message')||''
+      message: fd.get('message')||'',
+      honeypot: fd.get('website')||''
     };
+
+    // Honeypot check - if filled, it's likely a bot
+    if(payload.honeypot){
+      console.log('Bot detected');
+      return;
+    }
 
     if(!apiBaseUrl){
       setStatus(status,'error','Form backend not configured yet. See README to connect forms.');
@@ -35,9 +48,22 @@
       return;
     }
 
+    if(!validateEmail(payload.email)){
+      setStatus(status,'error','Please enter a valid email address.');
+      return;
+    }
+
+    if(!payload.message){
+      setStatus(status,'error','Please provide a message.');
+      return;
+    }
+
     try{
-      setStatus(status,'', 'Sending...');
+      setStatus(status,'', 'Sending your request...');
       submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.6';
+      submitBtn.innerHTML = '⏳ Sending...';
+
       const res = await fetch(apiBaseUrl + '/submit',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
@@ -48,11 +74,17 @@
         throw new Error(data.message || ('Request failed with ' + res.status));
       }
       form.reset();
-      setStatus(status,'success','Thanks! We received your request and will reach out soon.');
+      setStatus(status,'success','✓ Thanks! We received your request and will reach out soon.');
+      submitBtn.innerHTML = '✓ Sent!';
+      setTimeout(() => {
+        submitBtn.innerHTML = kind === 'request' ? 'Submit Request' : 'Send Message';
+      }, 3000);
     }catch(err){
-      setStatus(status,'error', err.message || 'Something went wrong. Please try again.');
+      setStatus(status,'error', '✗ ' + (err.message || 'Something went wrong. Please try again.'));
+      submitBtn.innerHTML = kind === 'request' ? 'Submit Request' : 'Send Message';
     }finally{
       submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
     }
   }
 
