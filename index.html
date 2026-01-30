@@ -81,33 +81,45 @@
   </header>
 
   <main>
-    <section class="hero-main container">
-      <div class="hero-content">
-        <span class="badge">Columbus, Ohio</span>
-        <h1>The solution to the problem of what to serve.</h1>
-        <p class="hero-description">Meatfest Catering is your go-to source for unforgettable, flavor-packed catering specializing in slow-smoked meats and bold, crowd-pleasing dishes. Whether you're hosting a backyard party, corporate event, wedding, or festival, we bring the smoke, the sizzle, and the feast. From brisket and ribs to smoked sides and custom BBQ spreads, Meatfest delivers rich flavors and hearty portions that keep guests coming back for more.</p>
-        <div class="btns">
-          <a class="btn primary" href="/request.html">Request a Quote</a>
-        </div>
-      </div>
-      <div class="hero-logo">
-        <img src="/assets/img/meatfest-logo.png" alt="Meatfest Formula: Pig² + Cow³ + Turkey² over Fire equals Infinity">
+    <!-- Full-width Hero with Background Image -->
+    <section class="hero-fullwidth" style="background-image: url('/assets/img/mixed-grill.jpg');">
+      <div class="hero-overlay">
+        <h1 class="hero-title">MEATFEST CATERING</h1>
+        <p class="hero-subtitle">THE SOLUTION TO THE PROBLEM OF WHAT TO SERVE</p>
       </div>
     </section>
 
-    <section class="section container">
-      <h2>See the Smoke & Sizzle</h2>
-      <p style="text-align:center;color:var(--muted);max-width:700px;margin:0 auto 2rem;">From our pits to your plate — our low and slow approach creates that perfect smoke ring and fall-off-the-bone tenderness.</p>
-      <div class="photo-gallery">
-        <div class="gallery-item">
-          <img src="/assets/img/ribs-smoker.jpg" alt="Seasoned pork ribs on the smoker getting that perfect bark">
+    <!-- About Us Section -->
+    <section class="about-section">
+      <div class="container">
+        <h2>ABOUT US</h2>
+        <p>Meatfest Catering is your go-to source for unforgettable, flavor-packed catering specializing in slow-smoked meats and bold, crowd-pleasing dishes. Whether you're hosting a backyard party, corporate event, wedding, or festival, we bring the smoke, the sizzle, and the feast. From brisket and ribs to smoked sides and custom BBQ spreads, Meatfest delivers rich flavors and hearty portions that keep guests coming back for more. We don't just cater — we create carnivorous celebrations.</p>
+        <a href="/request.html" class="btn primary">Catering Request</a>
+      </div>
+    </section>
+
+    <!-- Image Carousel -->
+    <section class="carousel-section">
+      <div class="carousel-container">
+        <div class="carousel-slides">
+          <div class="carousel-slide active">
+            <img src="/assets/img/mixed-grill.jpg" alt="Sausages and steaks on the grill for a classic BBQ spread">
+          </div>
+          <div class="carousel-slide">
+            <img src="/assets/img/ribs-smoker.jpg" alt="Seasoned pork ribs on the smoker getting that perfect bark">
+          </div>
+          <div class="carousel-slide">
+            <img src="/assets/img/20161015_090646.jpg" alt="Baby back ribs smoking low and slow with beautiful caramelization">
+          </div>
         </div>
-        <div class="gallery-item">
-          <img src="/assets/img/20161015_090646.jpg" alt="Baby back ribs smoking low and slow with beautiful caramelization">
+        <div class="carousel-dots">
+          <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+          <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
         </div>
-        <div class="gallery-item">
-          <img src="/assets/img/mixed-grill.jpg" alt="Sausages and steaks on the grill for a classic BBQ spread">
-        </div>
+      </div>
+      <div class="container" style="text-align:center;padding-top:1.5rem;">
+        <a href="/request.html" class="btn primary">Catering Request</a>
       </div>
     </section>
 
@@ -134,14 +146,14 @@
     </section>
 </main>
 
-  <footer class="footer">
+  <footer class="footer-red">
     <div class="container">
-      <div>© <span id="y"></span> Meatfest Catering • Columbus, Ohio</div>
-      <div class="small">Questions? <a href="/contact.html">Send us a message</a>.</div>
+      <p>Catering services available around: [ Columbus, OH ]</p>
+      <p>Phone: [ 614.653.6410 ]</p>
+      <p>Email: [meatfestcatering@gmail.com]</p>
     </div>
   </footer>
 
   <script src="/assets/js/main.js"></script>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
