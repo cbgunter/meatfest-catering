@@ -165,7 +165,7 @@ textarea{min-height:120px;resize:vertical}
   .btns{gap:.65rem;margin-top:1.75rem}
   .btn{padding:.7rem 1.1rem;font-size:.9rem}
   .card{padding:1.5rem;margin-bottom:1rem}
-  .grid.cards{grid-template-columns:1fr;gap:1.25rem}
+  .grid.cards{grid-template-columns:1fr;gap:1.25rem;padding:0 .5rem}
   .photo-gallery{gap:1.25rem;margin-top:2rem}
   .gallery-item{border-width:2px}
   .form{margin-top:1.5rem;padding:0 .5rem}
@@ -180,4 +180,5 @@ textarea{min-height:120px;resize:vertical}
   .hero-logo img{padding:1rem;border-width:2px}
   .form{padding:0 .75rem}
   .page-main{padding:1.25rem 0}
+  .grid.cards{padding:0 .75rem}
 }
