@@ -153,7 +153,7 @@ textarea{min-height:120px;resize:vertical}
 }
 
 @media (max-width: 600px){
-  .container{padding:0 2rem}
+  .container{padding:0 1.5rem}
   body{background-attachment:scroll}
   .hero-main{padding:2.5rem 0}
   .hero-content{padding:0}
@@ -168,13 +168,16 @@ textarea{min-height:120px;resize:vertical}
   .grid.cards{grid-template-columns:1fr;gap:1.25rem}
   .photo-gallery{gap:1.25rem;margin-top:2rem}
   .gallery-item{border-width:2px}
-  .form{margin-top:1.5rem}
+  .form{margin-top:1.5rem;padding:0 .5rem}
   .form-grid{gap:1rem}
   .contact-grid{gap:1.5rem}
-  .page-main{padding:0}
+  .page-main{padding:1rem 0}
+  .form-actions{padding:0 .25rem}
 }
 
 @media (max-width: 400px){
-  .container{padding:0 1.5rem}
+  .container{padding:0 1.25rem}
   .hero-logo img{padding:1rem;border-width:2px}
+  .form{padding:0 .75rem}
+  .page-main{padding:1.25rem 0}
 }
