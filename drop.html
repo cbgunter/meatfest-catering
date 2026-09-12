@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MEATFEST DROPS — Limited Batch Smoked Meats</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+
+  <style>
+    :root{
+      --bg:#0b0908;
+      --bg-2:#151110;
+      --ember:#ff5a2b;
+      --ember-dark:#c23a10;
+      --blood:#8b0000;
+      --gold:#ffb703;
+      --text:#f4ece4;
+      --muted:#a89686;
+      --card:#171210;
+      --border:#2c231d;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      background:
+        radial-gradient(circle at 15% 0%, rgba(255,90,43,0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(139,0,0,0.18) 0%, transparent 50%),
+        var(--bg);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      line-height:1.5;
+    }
+    img{max-width:100%;display:block}
+    .container{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+    a{color:var(--gold)}
+
+    .sneak-bar{background:#000;color:var(--gold);text-align:center;font-size:.75rem;letter-spacing:2px;padding:.5rem 1rem;font-weight:700;text-transform:uppercase;border-bottom:1px solid var(--border)}
+
+    header.dhdr{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+    .dlogo{font-weight:900;letter-spacing:3px;font-size:1.1rem;color:var(--text);text-decoration:none}
+    .dlogo span{color:var(--ember)}
+    .back{font-size:.85rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:.4rem .8rem;border-radius:999px}
+    .back:hover{color:var(--gold);border-color:var(--gold)}
+
+    /* Hero */
+    .dhero{padding:3.5rem 0 2.5rem;text-align:center}
+    .kicker{display:inline-block;color:var(--ember);font-weight:800;letter-spacing:4px;font-size:.8rem;margin-bottom:1rem;text-transform:uppercase}
+    .dhero h1{font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.05;margin:0 0 1rem;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 30px rgba(255,90,43,0.35)}
+    .dhero h1 em{font-style:normal;color:var(--ember)}
+    .dhero p{max-width:620px;margin:0 auto;color:var(--muted);font-size:1.05rem}
+
+    /* Countdown */
+    .countdown{display:flex;justify-content:center;gap:.75rem;margin:2.25rem 0 1rem;flex-wrap:wrap}
+    .cbox{background:var(--card);border:1px solid var(--border);border-radius:.6rem;padding:.9rem 1.1rem;min-width:74px;text-align:center;box-shadow:0 0 0 1px rgba(255,90,43,0.05), 0 8px 24px rgba(0,0,0,0.4)}
+    .cbox .num{display:block;font-size:1.6rem;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+    .cbox .lbl{display:block;font-size:.65rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:.15rem}
+    .drop-note{text-align:center;color:var(--muted);font-size:.85rem;margin-top:.5rem}
+
+    .cta-row{display:flex;justify-content:center;gap:.75rem;margin-top:1.75rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:.6rem;font-weight:800;letter-spacing:1px;text-decoration:none;text-transform:uppercase;font-size:.85rem;border:1px solid transparent;cursor:pointer}
+    .btn.primary{background:linear-gradient(135deg,var(--ember),var(--ember-dark));color:#fff;box-shadow:0 6px 20px rgba(255,90,43,0.35)}
+    .btn.primary:hover{filter:brightness(1.08)}
+    .btn.ghost{background:transparent;border-color:var(--border);color:var(--text)}
+    .btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+    .btn[disabled]{opacity:.55;cursor:not-allowed}
+
+    /* Drop grid */
+    .drops{padding:2.5rem 0 1rem}
+    .section-title{text-align:center;margin:0 0 .35rem;letter-spacing:3px;text-transform:uppercase;font-size:1.1rem;color:var(--muted)}
+    .section-sub{text-align:center;color:var(--muted);max-width:520px;margin:0 auto 2.25rem;font-size:.95rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+    .pcard{position:relative;background:var(--card);border:1px solid var(--border);border-radius:.9rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,0.45);transition:transform .25s ease, border-color .25s ease}
+    .pcard:hover{transform:translateY(-4px);border-color:var(--ember)}
+    .pimg{position:relative;height:190px;overflow:hidden}
+    .pimg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.05)}
+    .stamp{position:absolute;top:.75rem;right:.75rem;font-size:.65rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:.3rem .6rem;border-radius:999px;backdrop-filter:blur(2px)}
+    .stamp.sold{background:rgba(139,0,0,0.85);color:#fff}
+    .stamp.soon{background:rgba(255,183,3,0.9);color:#241a00}
+    .stamp.live{background:rgba(15,138,95,0.9);color:#fff}
+    .pbody{padding:1.1rem 1.1rem 1.25rem}
+    .batch{font-size:.7rem;letter-spacing:1.5px;color:var(--ember);text-transform:uppercase;font-weight:700;margin:0 0 .35rem}
+    .pbody h3{margin:.1rem 0 .4rem;font-size:1.05rem;color:var(--text)}
+    .pbody p{margin:0 0 .9rem;color:var(--muted);font-size:.88rem;line-height:1.55}
+    .prow{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+    .price{font-weight:800;color:var(--gold);font-size:.95rem}
+
+    /* Rules */
+    .rules{padding:3rem 0}
+    .rules-box{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2rem;max-width:720px;margin:0 auto}
+    .rules-box h2{margin:0 0 1.25rem;text-align:center;letter-spacing:2px;text-transform:uppercase;font-size:1.15rem}
+    .rules-box ol{margin:0;padding-left:1.25rem;color:var(--muted);display:grid;gap:.65rem}
+    .rules-box li strong{color:var(--text)}
+
+    /* Waitlist */
+    .waitlist{padding:2.5rem 0 4rem;text-align:center}
+    .wl-form{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;max-width:460px;margin:1.5rem auto 0}
+    .wl-form input{flex:1;min-width:220px;padding:.85rem 1rem;border-radius:.6rem;border:1px solid var(--border);background:#100c0b;color:var(--text);font:inherit}
+    .wl-form input:focus{outline:none;border-color:var(--ember)}
+    .wl-msg{margin-top:1rem;font-size:.9rem;color:var(--gold);min-height:1.2em}
+
+    footer.dfoot{border-top:1px solid var(--border);padding:2rem 0 3rem;text-align:center;color:var(--muted);font-size:.8rem}
+    footer.dfoot a{color:var(--muted);text-decoration:underline}
+
+    @media (max-width:640px){
+      .cbox{min-width:64px;padding:.7rem .8rem}
+      .cbox .num{font-size:1.3rem}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sneak-bar">You weren't supposed to find this URL. Congratulations, you're basically a hacker now.</div>
+
+  <header class="dhdr container">
+    <a class="dlogo" href="#">MEATFEST<span>DROPS</span></a>
+    <a class="back" href="/">&larr; back to the boring site</a>
+  </header>
+
+  <section class="dhero container">
+    <span class="kicker">Invite-Only &middot; Undisclosed Smoker Location</span>
+    <h1>Small batch.<br>Cult status.<br><em>Gone in minutes.</em></h1>
+    <p>We used to just cater your office lunch. Now we drop limited-run smoked meats like it's a sneaker release, because apparently that's what beer people do and it looked fun. No restocks. No refunds. No chill.</p>
+
+    <div class="countdown" id="countdown" aria-label="Time until next drop">
+      <div class="cbox"><span class="num" id="cd-d">00</span><span class="lbl">Days</span></div>
+      <div class="cbox"><span class="num" id="cd-h">00</span><span class="lbl">Hrs</span></div>
+      <div class="cbox"><span class="num" id="cd-m">00</span><span class="lbl">Min</span></div>
+      <div class="cbox"><span class="num" id="cd-s">00</span><span class="lbl">Sec</span></div>
+    </div>
+    <p class="drop-note">Next drop: <strong id="drop-date">Friday, 9:00 AM ET</strong> &middot; quantities in the single digits</p>
+
+    <div class="cta-row">
+      <button class="btn primary" id="cop-btn" type="button">Cop the Brisket</button>
+      <a class="btn ghost" href="#waitlist">Join the Waitlist</a>
+    </div>
+  </section>
+
+  <section class="drops container">
+    <h2 class="section-title">Current &amp; Upcoming Drops</h2>
+    <p class="section-sub">Every batch is hand-numbered. Some batches are numbered "1 of 1" because we only made one.</p>
+
+    <div class="grid">
+      <div class="pcard">
+        <div class="pimg">
+          <img src="/assets/img/ribs-smoker.jpg" alt="Baby back ribs on the smoker with a deep bark">
+          <span class="stamp sold">Sold Out</span>
+        </div>
+        <div class="pbody">
+          <p class="batch">Batch 001 &middot; 14 racks</p>
+          <h3>"First Bark" Baby Backs</h3>
+          <p>Bourbon-barrel rested, dry-rubbed at 4am by someone who definitely should've slept more.</p>
+          <div class="prow">
+            <span class="price">Priced in favors</span>
+            <button class="btn ghost" disabled>Sold Out</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg">
+          <img src="/assets/img/mixed-grill.jpg" alt="Mixed grill of sausages and steaks">
+          <span class="stamp soon">Drops Friday</span>
+        </div>
+        <div class="pbody">
+          <p class="batch">Batch 002 &middot; 6 trays</p>
+          <h3>Founders' Mixed Grill</h3>
+          <p>The original blend. Sausage, steak, and a strong opinion about lighter fluid (don't).</p>
+          <div class="prow">
+            <span class="price">$$ &middot; cash only, obviously</span>
+            <button class="btn ghost" disabled>Notify Me</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg">
+          <img src="/assets/img/IMG_8591.JPEG" alt="Smoked meat catering spread">
+          <span class="stamp live">Selling Now</span>
+        </div>
+        <div class="pbody">
+          <p class="batch">Batch 003 &middot; 9 lbs remaining</p>
+          <h3>Ghost Pepper Ring Bologna</h3>
+          <p>Limited to two per household. Limited to one per household after the first person cried.</p>
+          <div class="prow">
+            <span class="price">Trade offer accepted</span>
+            <button class="btn primary" type="button" data-buy>Cop Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg">
+          <img src="/assets/img/IMG_8575.JPEG" alt="Catering spread of smoked meats">
+          <span class="stamp sold">Sold Out</span>
+        </div>
+        <div class="pbody">
+          <p class="batch">Batch 000 &middot; 1 of 1</p>
+          <h3>The Whole Dang Brisket</h3>
+          <p>Never released. We just wanted to see if you'd read this far. You did. Respect.</p>
+          <div class="prow">
+            <span class="price">Not for sale</span>
+            <button class="btn ghost" disabled>Sold Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rules container">
+    <div class="rules-box">
+      <h2>How a Drop Works</h2>
+      <ol>
+        <li><strong>Follow the smoke.</strong> No ads, no announcements, just vibes and word of mouth.</li>
+        <li><strong>Refresh this page obsessively.</strong> Bots are not welcome. Neither is patience.</li>
+        <li><strong>Add to cart in under 4 minutes.</strong> There is no cart. That's the challenge.</li>
+        <li><strong>Miss it anyway.</strong> It's fine. There's a real catering menu one link away.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="waitlist container" id="waitlist">
+    <span class="kicker">Get First Dibs</span>
+    <h2 style="margin:.5rem 0 0;text-transform:uppercase;letter-spacing:2px;font-size:1.3rem;">Join the Waitlist</h2>
+    <p style="color:var(--muted);max-width:460px;margin:.75rem auto 0;">We will absolutely not build an email system for this. But typing your email into a box is very cathartic.</p>
+    <form class="wl-form" id="wl-form">
+      <input type="email" placeholder="you@example.com" required aria-label="Email address">
+      <button class="btn primary" type="submit">Get Notified</button>
+    </form>
+    <p class="wl-msg" id="wl-msg"></p>
+  </section>
+
+  <footer class="dfoot container">
+    <p>Meatfest Drops is a bit. The meat is real. The scarcity is not. For actual catering, go to <a href="/">meatfestcatering.com</a>.</p>
+  </footer>
+
+  <script>
+    (function(){
+      // Countdown to the next Friday at 9:00 AM local time — always future, never stale.
+      function nextFridayNine(){
+        const now = new Date();
+        const result = new Date(now);
+        result.setHours(9,0,0,0);
+        let daysUntilFriday = (5 - now.getDay() + 7) % 7;
+        if(daysUntilFriday === 0 && now >= result){
+          daysUntilFriday = 7;
+        }
+        result.setDate(now.getDate() + daysUntilFriday);
+        return result;
+      }
+
+      const target = nextFridayNine();
+      const dEl = document.getElementById('cd-d');
+      const hEl = document.getElementById('cd-h');
+      const mEl = document.getElementById('cd-m');
+      const sEl = document.getElementById('cd-s');
+
+      function pad(n){ return String(n).padStart(2,'0'); }
+
+      function tick(){
+        const diff = Math.max(0, target - new Date());
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+        dEl.textContent = pad(days);
+        hEl.textContent = pad(hours);
+        mEl.textContent = pad(mins);
+        sEl.textContent = pad(secs);
+      }
+      tick();
+      setInterval(tick, 1000);
+
+      const cop = document.getElementById('cop-btn');
+      if(cop){
+        cop.addEventListener('click', function(){
+          cop.textContent = 'Sold Out (0.4s)';
+          cop.disabled = true;
+        });
+      }
+
+      document.querySelectorAll('[data-buy]').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          btn.textContent = 'In Your Cart*';
+          btn.disabled = true;
+        });
+      });
+
+      const wlForm = document.getElementById('wl-form');
+      const wlMsg = document.getElementById('wl-msg');
+      if(wlForm){
+        wlForm.addEventListener('submit', function(e){
+          e.preventDefault();
+          const spot = Math.floor(1000 + Math.random() * 9000);
+          wlMsg.textContent = "You're #" + spot.toLocaleString() + " in line. ETA: never.";
+          wlForm.reset();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
