@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MEATFEST DROPS</title>
+  <title>MEATFEST SMOKE COMPANY</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 
@@ -13,9 +13,7 @@
       --text:#2b1810;
       --muted:#6b5345;
       --brand:#8b0000;
-      --brand-dark:#5a0000;
       --accent:#e4572e;
-      --border:#e8ddd1;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
@@ -23,129 +21,41 @@
       background:var(--bg);
       color:var(--text);
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-      line-height:1.6;
+      line-height:1.7;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:3rem 1.5rem;
     }
-    .container{max-width:640px;margin:0 auto;padding:0 1.5rem}
-    a{color:var(--brand);text-decoration:none}
+    main{max-width:560px;text-align:center}
+    a{color:var(--brand);text-decoration:underline}
     a:hover{color:var(--accent)}
 
-    header{padding:2rem 0 0}
-    .wordmark{display:flex;align-items:center;justify-content:space-between}
-    .wordmark .mark{font-weight:800;letter-spacing:2px;font-size:.9rem;color:var(--brand);text-transform:uppercase}
-    .wordmark .home{font-size:.8rem;color:var(--muted)}
-
-    .hero{padding:5rem 0 3rem;text-align:center;border-bottom:1px solid var(--border)}
-    .kicker{display:block;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
-    .hero h1{font-size:clamp(1.6rem,4.5vw,2.4rem);line-height:1.35;margin:0 0 1.5rem;font-weight:800;letter-spacing:.5px}
-    .hero p{color:var(--muted);max-width:420px;margin:0 auto;font-size:.95rem}
-
-    .list-section{padding:2.5rem 0;border-bottom:1px solid var(--border)}
-    .list-section h2{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:0 0 1.25rem;font-weight:700}
-    .batch-list{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
-    .batch-list li{display:flex;justify-content:space-between;align-items:baseline;padding:.75rem 0;border-bottom:1px dashed var(--border);font-size:.95rem}
-    .batch-list li:last-child{border-bottom:none}
-    .batch-list .name{font-weight:600}
-    .batch-list .status{font-size:.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-    .batch-list .status.open{color:var(--brand);font-weight:700}
-
-    .signup{padding:2.5rem 0;border-bottom:1px solid var(--border)}
-    .signup p{color:var(--muted);font-size:.9rem;margin:0 0 1rem}
-    .signup-row{display:flex;gap:0;border-bottom:2px solid var(--text);max-width:420px}
-    .signup-row input{flex:1;border:none;background:transparent;padding:.6rem 0;font:inherit;color:var(--text)}
-    .signup-row input:focus{outline:none}
-    .signup-row button{border:none;background:none;color:var(--brand);font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:.8rem;cursor:pointer;padding:.6rem 0}
-    .signup-row button:hover{color:var(--accent)}
-    .signup-msg{margin-top:.85rem;font-size:.85rem;color:var(--brand);min-height:1.2em}
-
-    .faq{padding:2.5rem 0 4rem}
-    .faq h2{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:0 0 1.5rem;font-weight:700}
-    .qa{padding:1.1rem 0;border-bottom:1px solid var(--border)}
-    .qa:last-child{border-bottom:none}
-    .qa .q{font-weight:700;margin:0 0 .35rem;font-size:.95rem}
-    .qa .a{margin:0;color:var(--muted);font-size:.9rem}
-
-    footer{padding:2rem 0 3rem;text-align:center}
-    footer p{font-size:.8rem;color:var(--muted);margin:0}
+    h1{
+      font-size:clamp(1.4rem,4.5vw,2rem);
+      font-weight:800;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:var(--brand);
+      margin:0 0 1rem;
+    }
+    .tagline{font-size:1rem;color:var(--text);margin:0}
+    .faq-line{margin:4.5rem 0 0;font-size:.95rem}
+    .place{margin:4.5rem 0 0;font-size:.95rem;color:var(--muted)}
+    .follow{margin:3rem 0 0;font-size:.95rem;color:var(--muted)}
   </style>
 </head>
 <body>
+  <main>
+    <h1>Meatfest Smoke Company</h1>
+    <p class="tagline">A Social Smokehouse Experiment</p>
 
-  <header class="container">
-    <div class="wordmark">
-      <span class="mark">Meatfest Drops</span>
-      <a class="home" href="/">meatfestcatering.com</a>
-    </div>
-  </header>
+    <p class="faq-line">Please <a href="/drop-faq.html">click here</a> for answers to some of our most Frequently Asked Questions.</p>
 
-  <section class="hero container">
-    <span class="kicker">No List. No Ads. No Warning.</span>
-    <h1>We do not announce.<br>We disappear.</h1>
-    <p>Small batches of smoked meat, released without notice, gone before you finish reading this sentence.</p>
-  </section>
+    <p class="place">Columbus, Ohio</p>
 
-  <section class="list-section container">
-    <h2>Batches</h2>
-    <ul class="batch-list">
-      <li><span class="name">Batch VI</span><span class="status">Gone</span></li>
-      <li><span class="name">Batch VII</span><span class="status">Gone</span></li>
-      <li><span class="name">Batch VIII</span><span class="status">Gone</span></li>
-      <li><span class="name">Batch IX</span><span class="status open">Unannounced</span></li>
-    </ul>
-  </section>
-
-  <section class="signup container">
-    <p>Leave your email. We may never use it.</p>
-    <form class="signup-row" id="wl-form">
-      <input type="email" placeholder="you@example.com" required aria-label="Email address">
-      <button type="submit">Submit</button>
-    </form>
-    <p class="signup-msg" id="wl-msg"></p>
-  </section>
-
-  <section class="faq container">
-    <h2>FAQ</h2>
-    <div class="qa">
-      <p class="q">When is the next drop?</p>
-      <p class="a">When it's ready.</p>
-    </div>
-    <div class="qa">
-      <p class="q">How many will there be?</p>
-      <p class="a">Fewer than you think.</p>
-    </div>
-    <div class="qa">
-      <p class="q">Can I get on a list?</p>
-      <p class="a">You're on one now.</p>
-    </div>
-    <div class="qa">
-      <p class="q">Do you ship?</p>
-      <p class="a">We disappear. We don't ship.</p>
-    </div>
-    <div class="qa">
-      <p class="q">Is this real?</p>
-      <p class="a">The meat is. The rest is up for debate.</p>
-    </div>
-    <div class="qa">
-      <p class="q">Why smoked meat and not something else?</p>
-      <p class="a">We tried catering. This was more fun.</p>
-    </div>
-  </section>
-
-  <footer class="container">
-    <p>Actual catering, with menus and prices and everything, lives at <a href="/">meatfestcatering.com</a>.</p>
-  </footer>
-
-  <script>
-    (function(){
-      const wlForm = document.getElementById('wl-form');
-      const wlMsg = document.getElementById('wl-msg');
-      if(wlForm){
-        wlForm.addEventListener('submit', function(e){
-          e.preventDefault();
-          wlMsg.textContent = 'Noted. That is the extent of the system.';
-          wlForm.reset();
-        });
-      }
-    })();
-  </script>
+    <p class="follow">Follow &ldquo;Meatfest&rdquo; exclusively by word of mouth.</p>
+  </main>
 </body>
 </html>
