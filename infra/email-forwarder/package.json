@@ -1,0 +1,10 @@
+{
+  "name": "email-forwarder",
+  "version": "1.0.0",
+  "description": "SES email forwarder Lambda function",
+  "main": "email-forwarder.js",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "@aws-sdk/client-ses": "^3.0.0"
+  }
+}

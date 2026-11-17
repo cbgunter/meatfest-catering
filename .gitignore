@@ -21,3 +21,6 @@ infra/src/package-lock.json
 
 # GitHub
 .github/.DS_Store
+# Email forwarder build artifacts
+infra/email-forwarder/node_modules/
+infra/email-forwarder/*.zip

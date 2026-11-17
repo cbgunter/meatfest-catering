@@ -1,0 +1,14 @@
+{
+  "Records": [
+    {
+      "ses": {
+        "mail": {
+          "messageId": "vmdf95vppqm8jcuf0cr8pudu8qjgfl6d9ur286g1"
+        },
+        "receipt": {
+          "recipients": ["jeff@meatfestcatering.com"]
+        }
+      }
+    }
+  ]
+}
